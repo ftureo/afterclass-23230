@@ -28,11 +28,6 @@ const ItemCount = ({ stock, initial }) => {
 
   const onAdd = () => {
     const message = `Agregaste ${count} producto`;
-    // if (count > initial) {
-    //   alert(message + "s");
-    // } else {
-    //   alert(message);
-    // }
     count === 1 ? alert(message) : alert(`${message}s`);
   };
   return (
