@@ -1,13 +1,13 @@
 import Item from "./Item";
 
 const ItemList = ({ products }) => {
-  console.log("Productos en IL", products);
   return (
-    <>
+    <div>
       {products.map((product) => {
         return (
           <Item
             key={product.id}
+            id={product.id}
             title={product.title}
             pictureUrl={product.pictureUrl}
             price={product.price}
@@ -15,7 +15,7 @@ const ItemList = ({ products }) => {
           />
         );
       })}
-    </>
+    </div>
   );
 };
 export default ItemList;

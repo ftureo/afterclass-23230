@@ -1,17 +1,8 @@
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const ItemCount = ({ stock, initial }) => {
   const [count, setCount] = useState(initial);
-
-  const [color, setColor] = useState("Verde");
-  console.log("Soy el color", color);
-
-  const changeToRed = () => {
-    setColor("Rojo");
-  };
-  const changeToGreen = () => {
-    setColor("Verde");
-  };
 
   const onDecrease = () => {
     const newValue = count - 1;
@@ -31,22 +22,19 @@ const ItemCount = ({ stock, initial }) => {
     count === 1 ? alert(message) : alert(`${message}s`);
   };
   return (
-    <div>
-      <button onClick={changeToGreen}>Te cambio el texto a Verde</button>
-      <button onClick={changeToRed}>Te cambio el texto a Rojo</button>
-      <h2>Estado actual del color: {color}</h2>
-
-      <h1>Soy el contador</h1>
-      <div className="d-flex">
-        <button className="px-3 mx-3" onClick={onDecrease}>
+    <div className="d-flex flex-column">
+      <div className="d-flex mt-3">
+        <Button variant="primary" onClick={onDecrease} className="px-3 mx-3">
           -
-        </button>
+        </Button>{" "}
         <h3 className="px-3 mx-3">{count}</h3>
-        <button className="px-3 mx-3" onClick={onIncrease}>
+        <Button variant="primary" onClick={onIncrease} className="px-3 mx-3">
           +
-        </button>
+        </Button>{" "}
       </div>
-      <button onClick={onAdd}>Agregar al Carrito</button>
+      <Button variant="danger" onClick={onAdd} className="mt-3">
+        Agregar al Carrito
+      </Button>{" "}
     </div>
   );
 };
